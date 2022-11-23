@@ -12,6 +12,7 @@ import { ProvinciasComponent } from './pages/provincias/provincias.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormsModule } from '@angular/forms';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { BuscarProductoPipe } from './pipes/buscar-producto.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ProductosComponent } from './pages/productos/productos.component';
     HomeComponent,
     ProvinciasComponent,
     ProductosComponent,
+    BuscarProductoPipe,
   ],
   
   imports: [
