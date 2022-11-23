@@ -1,0 +1,39 @@
+<!-- COMPONENTES PARA LA SELECCION DE PROVINCIAS  -->
+
+<h1>Provincia </h1>
+
+<hr>
+
+<form autocomplete="off" (ngSubmit)="provinciaSelecionada(formu)" #formu="ngForm">
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Provincia</label>
+    <div class="col-8">
+
+      <select class="form-control form-select form-select-lg mb-3" 
+              aria-label="Default select example"
+              name="provincia"
+              ngModel>
+        <!-- <option selected>Seleccione Provincia</option> -->
+        <option *ngFor="let prov of provincias"
+                [value]="prov.nombre"> 
+                {{ prov.nombre }} 
+        </option>
+      </select>
+
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button type="submit" class="btn btn-outline-primary btn-block">
+        Buscar
+      </button>
+    </div>
+  </div>
+
+</form>
+
+<!-- Paginas de PRODUCTOS  -->
+<app-productos></app-productos>

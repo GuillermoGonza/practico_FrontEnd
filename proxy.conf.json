@@ -1,0 +1,7 @@
+{
+    "/precios-justos/api/v1/*": {
+      "target": "https://panalsoft.com",
+      "secure": false,
+      "changeOrigin": true
+    }
+}
