@@ -9,25 +9,18 @@ import { map } from 'rxjs';
 })
 export class ProvinciasService {
 
+  url = '/precios-justos/api/v1/';
+  provincia = 'provincias.json'
+  provinciaSeleccionada: string = ''
 
   constructor( private http: HttpClient ) { }
 
-
-  
   cargarProvincias() {
 
-    const url = '/precios-justos/api/v1/provincias.json';
-      return this.http.get<Provincia>( url )
+      return this.http.get<Provincia>( `${this.url}${this.provincia}` )
      
   }
 
-
-  
-
-    // allprovincias(item: Provincia){
-    //   const result = this.provincias.push(item)
-    //   console.log(result);
-    // }
 
 }
 

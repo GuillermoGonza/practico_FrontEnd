@@ -1,20 +1,84 @@
-<section class="main-content">
+
+<!-- PARA LA SELECCION DE PROVINCIAS  -->
+<div class="mt-4">
+
+    <h1>Productos Cuidados </h1>
+  
+    <hr>
+  
+    <form autocomplete="off" (ngSubmit)="seleccionaProvincia(formu)" #formu="ngForm">
+  
+      <div class="form-group row">
+        <div class="container-fluid">
+  
+          <h2 class="text-center display-6 mt-4">Seleccione su Provincia:</h2>
+  
+          <select class="form-control form-select form-select-lg mb-3" 
+                  aria-label="Default select example"
+                  name="nombre"
+                  ngModel>
+            <!-- <option selected>Seleccione Provincia</option> -->
+            <option *ngFor="let prov of provincias"
+                    [value]="prov.nombre"> 
+                    {{ prov.nombre }} 
+            </option>
+          </select>
+  
+        </div>
+      </div>
+  
+      <div class="form-group row">
+        <div class="input-group col-md-8">
+          <button type="submit" class="btn btn-outline-primary btn-block">
+            Buscar
+          </button>
+        </div>
+      </div>
+  
+    </form>
+  </div>
+
+
+<section class="main-content mt-3" style="padding: 15px;">
     <div class="container">
-        <h1 class="text-center text-uppercase">Precios de Ushuaia</h1>
 
+        <h2 class="text-center text-muted" > Provincia de: 
+            <samp class=" display-6 mt-4" *ngFor="let item of provinciaSeleccionada"> {{ item.nombre }} </samp> 
+        </h2>
+
+        <form >
+            <div class="input-group">
+                <input type="text" class="form-control" 
+                    placeholder="Que desea buscar ?" 
+                    #txtBuscar
+                    >
+                    <!-- (keyup)="textoBuscar(txtBuscar.value)" -->
+                <button class="btn btn-outline-primary" 
+                        type="button" 
+                        (click)="textoBuscar(txtBuscar.value)" 
+                        >
+                        Buscar
+                </button>
+                <button class="btn btn-outline-success" type="button">Scan EAN</button>
+            </div>
+        </form>
+        
         <br>
-        <div class="row">
+        
+        <h5 class="mt-1 text-muted">Productos encontrados {{ productos.length }}</h5>
 
-            <div class="col-sm-6 col-md-6 col-lg-6" *ngFor="let producto of productos">
+        <div class="row mt-4">
+            
+            <div class="col-sm-6 col-md-6 col-lg-6 animated fadeIn" *ngFor="let producto of productos | pipeBuscarProducto: filtrarBusqueda ">
                 <div class="food-card food-card--vertical">
                     <div class="food-card_img">
                         <img src="https://i.imgur.com/eFWRUuR.jpg" alt="">
-                        <a href="#!"><i class="fa fa-heart"></i></a>
+                        <a><i class="fa fa-heart"></i></a>
                     </div>
-                    <div class="food-card_content">
+                    <div class="food-card_content ">
                         <div class="food-card_title-section">
-                            <a href="#!" class="food-card_title">{{ producto.ean }}</a>
-                            <a href="#!" class="food-card_author"> {{ producto.descripcion }} </a>
+                            <a class="food-card_title">{{ producto.ean }}</a>
+                            <a class="food-card_author"> {{ producto.descripcion }} </a>
                         </div>
                         <div class="food-card_bottom-section">
                             <div class="space-between">

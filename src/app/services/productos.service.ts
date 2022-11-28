@@ -9,14 +9,13 @@ import { map } from 'rxjs';
 })
 export class ProductosService {
 
+  url = '/precios-justos/api/v1/';
+
   constructor( private http: HttpClient) { }
 
-  cargarProductos() {
-
-    let productos: Producto[]=[]
-
-    const url = '/precios-justos/api/v1/caba.json';
-      return this.http.get<RespProductos>( url )
+  cargarProductos( provincia: string ) {
+      console.log(`${this.url}${ provincia }`);
+      return this.http.get<RespProductos>( `${this.url}${ provincia }` )
       .pipe(
         map( resp => resp.values)
       )
