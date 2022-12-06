@@ -15,6 +15,10 @@ import { PipesModule } from './pipes/pipes.module';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { Err404Component } from './pages/err404/err404.component';
 
+//Para escanear con la webcam
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,8 +38,9 @@ import { Err404Component } from './pages/err404/err404.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    PipesModule
-
+    PipesModule,
+    ZXingScannerModule,
+    NgbPaginationModule,
   ],
   providers: [ ],
   bootstrap: [AppComponent]
