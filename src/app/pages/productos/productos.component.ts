@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProvinciasService } from '../../services/provincias.service';
 import { ProductosService } from '../../services/productos.service';
 import { Producto } from '../../interfaces/productos';
@@ -9,13 +9,15 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
-  styleUrls: ['./productos.component.css']
+  styleUrls: ['./productos.component.css'],
 })
 
 
 export class ProductosComponent implements OnInit {
 
-  productos: Producto[] = []
+
+
+  productos: any
 
   provincias: any = [];
 
@@ -29,30 +31,18 @@ export class ProductosComponent implements OnInit {
 
   ngOnInit(): void {
 
+
+    // Inicio la carga de las provincias
     this.provinciasService.cargarProvincias().subscribe( (data: Provincia) => {
       console.log(data);
       this.provincias = data
     })
 
-    // this.productosService.cargarProductos().subscribe( (data) =>{
-    //     console.log(data);
-  
-    //   const datos = data.map( data => {
-        
-    //     return  {
-    //       ean:  parseInt(data[0]),
-    //       descripcion: data[1],
-    //       precio: data[2]   
-  
-    //     }
-    //   })
-    //     this.productos = datos
-    //     console.log(this.productos);
-    // })
   }
 
+  // Cuando selecciona la provincia y de da en buscar
   seleccionaProvincia( forma: NgForm ){
-
+    //valido que seleccione una provincia 
     if (forma.value.nombre === '') {
       Swal.fire('Debe seleccionar una Provincia ')
       return
@@ -61,23 +51,15 @@ export class ProductosComponent implements OnInit {
     this.provinciaSeleccionada = []
 
     let prov = this.provincias.find( (item: Provincia ) =>{ return item.nombre === forma.value.nombre });
-
+    
     this.extraerProvincia(prov.api);
 
     this.provinciaSeleccionada.push(prov);
 
     this.productosService.cargarProductos(this.httpProvincia).subscribe( data =>{
-      const datos = data.map( data => {
-        
-        return  {
-          ean:  parseInt(data[0]),
-          descripcion: data[1],
-          precio: data[2]   
-  
-        }
-      })
-        this.productos = datos
-        console.log(this.productos);
+     
+      this.productos = data
+      // console.log(data, 'datos');
     })
 
   }
