@@ -13,6 +13,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { PipesModule } from './pipes/pipes.module';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { Err404Component } from './pages/err404/err404.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
     HomeComponent,
     ProductosComponent,
     ContactoComponent,
+    Err404Component,
   ],
   
   imports: [
