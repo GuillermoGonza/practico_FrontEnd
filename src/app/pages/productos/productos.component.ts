@@ -5,6 +5,7 @@ import { Producto } from '../../interfaces/productos';
 import { Provincia } from '../../interfaces/provincias';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-productos',
@@ -27,7 +28,9 @@ export class ProductosComponent implements OnInit {
 
   httpProvincia: string = ''
 
-  constructor( private productosService: ProductosService, public provinciasService: ProvinciasService ) { }
+  constructor( private productosService: ProductosService, 
+               public provinciasService: ProvinciasService,
+               private router: Router ) { }
 
   ngOnInit(): void {
 
@@ -80,6 +83,11 @@ export class ProductosComponent implements OnInit {
   textoBuscar( event: string ){
     this.filtrarBusqueda = event
     console.log(event);
+  }
+
+  productoSelecionado( ean: number){
+    this.router.navigate(['/producto', ean])
+    console.log(ean)
   }
 
 }
