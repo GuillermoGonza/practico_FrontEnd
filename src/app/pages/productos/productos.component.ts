@@ -17,7 +17,7 @@ export class ProductosComponent implements OnInit {
 
 
 
-  productos: any
+  productos: Producto[] =[]
 
   provincias: any = [];
 
@@ -59,7 +59,7 @@ export class ProductosComponent implements OnInit {
     this.productosService.cargarProductos(this.httpProvincia).subscribe( data =>{
      
       this.productos = data
-      // console.log(data, 'datos');
+      console.log(data, 'datos');
     })
 
   }

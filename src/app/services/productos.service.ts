@@ -17,14 +17,23 @@ export class ProductosService {
       console.log(`${this.url}${ provincia }`);
       return this.http.get<RespProductos>( `${this.url}${ provincia }` )
       .pipe(
-        map( resp => resp.values)
-      )
-        
-                
-               }
-              
+        map((data: any) => {
+          // aca transformo datos
+          data.values.shift()
+          data.values.shift()
 
-                 
+          return data.values.map((producto:any) => {
+            let precioTemp = producto[2]
+              .replace('.', '')
+              .replace(',', '.')
+            return {
+              ean: parseInt(producto[0]),
+              descripcion: producto[1],
+              precio: parseFloat(precioTemp),
+            }
+          })
+        })
+      )
+  }
 
 }
-
