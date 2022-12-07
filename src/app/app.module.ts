@@ -13,6 +13,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { PipesModule } from './pipes/pipes.module';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
     HomeComponent,
     ProductosComponent,
     ContactoComponent,
+    FooterComponent,
   ],
   
   imports: [
