@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { InfoProducto, Display, Es } from '../interfaces/infoproducto';
+import { InfoProducto, Display, Es, Product } from '../interfaces/infoproducto';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -22,9 +22,24 @@ export class ProductoService {
       return this.http.get<InfoProducto>( `${this.url}${ean}.json` )
         .pipe(
           map( (infoProduct: any) => {
-            let temp = infoProduct.product.selected_images.front.display.es
+         
+            return {
+              ean: infoProduct.product._id,
+              subtitulo: infoProduct.product.brands,
+              nombre: infoProduct.product.product_name_es,
+              peso: infoProduct.product.quantity,
+              ingredientes: infoProduct.product.labels,
+              descripcion: infoProduct.product.categories,
+              paises: infoProduct.product.countries,
+              imgfrontal: infoProduct.product.image_front_url,
+              imgtrasera: infoProduct.product.image_nutrition_url,
+              // descripcion: infoProduct.product.ingredients
+              
 
-            console.log(temp)
+            }
+            // let temp = infoProduct.product.selected_images.front.display.es
+
+            // console.log(temp)
           })
         )
      
