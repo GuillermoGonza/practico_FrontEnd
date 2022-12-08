@@ -21,19 +21,20 @@ export class ProductoService {
 
       return this.http.get<InfoProducto>( `${this.url}${ean}.json` )
         .pipe(
-          map( (infoProduct: any) => {
+          map( (infoProduct: InfoProducto) => {
          
             return {
-              ean: infoProduct.product._id,
-              subtitulo: infoProduct.product.brands,
-              nombre: infoProduct.product.product_name_es,
-              peso: infoProduct.product.quantity,
-              ingredientes: infoProduct.product.labels,
-              descripcion: infoProduct.product.categories,
-              paises: infoProduct.product.countries,
-              imgfrontal: infoProduct.product.image_front_url,
-              imgtrasera: infoProduct.product.image_nutrition_url,
-              // descripcion: infoProduct.product.ingredients
+              ean: infoProduct.product?._id,
+              subtitulo: infoProduct.product?.labels,
+              // ingredientes: infoProduct.product,
+              nombre: infoProduct.product?.brands,
+              nombre2: infoProduct.product?.product_name,
+              peso: infoProduct.product?.quantity,
+              descripcion: infoProduct.product?.categories,
+              paises: infoProduct.product?.countries,
+              imagenfrontal: infoProduct.product?.image_front_url,
+              imagentrasera: infoProduct.product?.image_nutrition_url,
+              nutricion: infoProduct.product?.ingredients_text_es
               
 
             }
