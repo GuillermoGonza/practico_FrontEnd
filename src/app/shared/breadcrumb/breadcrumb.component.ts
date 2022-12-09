@@ -38,5 +38,7 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
   }
-
+goBack() {
+    window.history.back();
+  }
 }

@@ -15,6 +15,7 @@ import { PipesModule } from './pipes/pipes.module';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ProductoComponent } from './pages/producto/producto.component';
+import { Error404Component } from './pages/error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ProductoComponent } from './pages/producto/producto.component';
     ContactoComponent,
     FooterComponent,
     ProductoComponent,
+    Error404Component,
   ],
   
   imports: [
