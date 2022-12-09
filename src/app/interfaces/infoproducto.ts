@@ -77,7 +77,7 @@ export interface Product {
     informers_tags?:                             string[];
     ingredients_from_palm_oil_tags?:             any[];
     ingredients_hierarchy?:                      any[];
-    ingredients_text_es?:                        string;
+    ingredients_text_es?:                        any;
     ingredients_text_with_allergens?:            string;
     ingredients_text_with_allergens_es?:         string;
     ingredients_that_may_be_from_palm_oil_tags?: any[];
