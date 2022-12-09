@@ -28,7 +28,7 @@ export class ProductoComponent implements OnInit {
   }
 
   mostrarProducto( ean: string ){
-    this.productoServices.cargarPproducto(ean).subscribe( (produc: any) =>{
+    this.productoServices.cargarPproducto(ean).subscribe( (produc) =>{
       
       console.log(produc)
     })
