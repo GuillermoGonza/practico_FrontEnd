@@ -11,5 +11,7 @@ export class BreadcrumbComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+goBack() {
+    window.history.back();
+  }
 }
