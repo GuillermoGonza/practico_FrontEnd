@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { InfoProducto, Display, Es, Product } from '../interfaces/infoproducto';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,12 @@ export class ProductoService {
   // ean = '7790040136250'
 
   constructor( private http: HttpClient ) { }
+
+  productos: InfoProducto[] = [];
+
+  getAll():Observable<InfoProducto[]>{
+    return this.http.get<InfoProducto[]>(this.url);
+  }
 
   cargarPproducto( ean: string ) {
 
