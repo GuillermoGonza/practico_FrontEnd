@@ -9,12 +9,13 @@ import { ProductoComponent } from './pages/producto/producto.component';
 import { Error404Component } from './pages/error404/error404.component';
 
 const routes: Routes = [
+  // { path: '', component: HomeComponent, data: { titulo: 'Home'} },
   { path: 'home', component: HomeComponent, data: { titulo: 'Home'} },
   { path: 'productos', component: ProductosComponent, data: { titulo: 'Productos'} },
   { path: 'producto/:ean', component: ProductoComponent, data: { titulo: 'Producto'} },
   { path: 'contacto', component: ContactoComponent, data: { titulo: 'Contacto'} },
-  // { path: 'precios', component: PreciosComponent},
-  { path: '**', pathMatch: 'full', redirectTo: 'home'}
+  { path: '**', component: Error404Component},
+  // { path: '**', pathMatch: 'full', redirectTo: 'home'}
 
 ];
 
