@@ -21,7 +21,9 @@ export class ProductoComponent implements OnInit {
 
       this.ean = params['ean']
 
-      //console.log(params['ean'])
+      this.mostrarProducto(this.ean);
+
+      console.log(params['ean'])
     })
   }
 
@@ -30,17 +32,17 @@ export class ProductoComponent implements OnInit {
   }
 
   mostrarProducto( ean: string ){
-    this.productoServices.cargarPproducto(ean).subscribe( (produc) =>{
+    this.productoServices.cargarProducto(ean).subscribe( (produc) =>{
 
       
       
-      //console.log(produc)
+      console.log(produc)
     })
   }
 
-  getProductos(){
-    this.productoServices.getAll().subscribe((data:InfoProducto[])=>{
-      this.producto = data;
-    })
-  }
+  // getProductos(){
+  //   this.productoServices.getAll().subscribe((data:InfoProducto[])=>{
+  //     this.producto = data;
+  //   })
+  // }
 }
